@@ -19,7 +19,6 @@ const App = () => {
       let random = Math.floor(Math.random() * trendingList[0].items.results.length)
       let featured = trendingList[0].items.results[random];
       setFeaturedShow(featured);
-      console.log(featured);
     }
     loadAll();
   }, []);

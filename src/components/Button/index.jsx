@@ -14,11 +14,15 @@ const Button = (props) => {
   };
 
   const styledButton = {
+    display: "flex",
+    textAlign: "center",
+    alignItems: "center",
     margin: "0px 10px",
     padding: "10px 15px",
     borderRadius: "5px",
     color: props.textColor,
     backgroundColor: props.bgColor,
+    fontWeight: "bold",
     cursor: "pointer",
     transform: state,
     transition: "all ease 0.2s",

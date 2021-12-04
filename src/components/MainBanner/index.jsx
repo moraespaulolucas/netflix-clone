@@ -6,6 +6,17 @@ const MainBanner = ({ featured }) => {
   const backgroungImg =
     "https://image.tmdb.org/t/p/original" + featured.backdrop_path;
 
+  // verificando se o show mostrado no banner é uma série ou um filme
+  // séries tem o nome como "name", filmes tem como "title"
+  const verifyTitle = () => {
+    if (featured.title) {
+      return featured.title;
+    } else {
+      return featured.name;
+    }
+  };
+  const bannerTitle = verifyTitle();
+
   const styledMainBanner = {
     height: "90vh",
     backgroundImage: "url(" + backgroungImg + ")",
@@ -39,16 +50,15 @@ const MainBanner = ({ featured }) => {
     width: "30%",
   };
 
-  const styledTitle = {
-    margin: "10px 0px",
-    fontSize: "40px",
-    fontWeight: "bold",
-    letterSpacing: "2px",
-  };
-
   const styledOverview = {
     textAlign: "justify",
-    fontSize: "16px",
+  };
+
+  const overviewWrapper = {
+    display: "flex",
+    overflow: "auto",
+    maxHeight: "100px",
+    padding: "0px 10px",
   };
 
   const buttonArea = {
@@ -56,7 +66,6 @@ const MainBanner = ({ featured }) => {
     display: "flex",
     justifyContent: "center",
   };
-
   //   if (featured.overview.length > 180) {
   //     featuredDesc = featured.overview.slice(0, 180) + "...";
   //   } else {
@@ -64,14 +73,18 @@ const MainBanner = ({ featured }) => {
   //   }
 
   return (
-    <div style={styledMainBanner}>
-      <div style={verticalGradient}>
-        <div style={horizontalGradient}>
-          <div style={textContainer}>
-            <div style={textWrapper}>
-              <h1 style={styledTitle}>{featured.title}</h1>
-              <p style={styledOverview}>{featured.overview}</p>
-              <div style={buttonArea}>
+    <div style={styledMainBanner} className="MainBanner">
+      <div style={verticalGradient} className="verticalGradient">
+        <div style={horizontalGradient} className="horizontalGradient">
+          <div style={textContainer} className="textContainer">
+            <div style={textWrapper} className="textWrapper">
+              <h1 className="bannerTitle">{bannerTitle}</h1>
+              <div style={overviewWrapper} className="overviewWrapper">
+                <p style={styledOverview} className="bannerOverview">
+                  {featured.overview}
+                </p>
+              </div>
+              <div style={buttonArea} className="buttonArea">
                 <Button textColor="#ffffff" bgColor="#ff2222">
                   Assistir
                 </Button>

@@ -1,11 +1,11 @@
 import React from "react";
 
-import CarouselImg from "../CarouselImg";
+import { CarouselImg } from "..";
 
 const MovieRow = ({ title, items }) => {
   const styledCarouselArea = {
     margin: "15px 0px",
-    overflowX: "hidden",
+    overflowX: "auto",
   };
 
   const styledCarouselTitle = {
