@@ -25,23 +25,14 @@ const App = () => {
 
   return (
     <>
-      <nav>
-        <NavBar />
-      </nav>
-      <header>
-        <MainBanner featured={featuredShow} />
-      </header>
-      <section>
-        {/* loop que renderiza o carousel de cada categoria */}
-        {movieList.map((list, key) => {
-          return (
-            <Carousel key={key} title={list.title} items={list.items} />
-          )
-        })}
-      </section>
-      <footer>
-
-      </footer>
+      <NavBar />
+      <MainBanner featured={featuredShow} />
+      {/* loop que renderiza o carousel de cada categoria */}
+      {movieList.map((list, key) => {
+        return (
+          <Carousel key={key} title={list.title} items={list.items} />
+        )
+      })}
     </>
   );
 }
